@@ -5,7 +5,7 @@
 #include <winsock2.h>     // Main socket API
 #include <ws2tcpip.h>     // For modern IP stuff (IPv6, inet_pton, etc.)
 #pragma comment(lib, "ws2_32.lib") 
-
+//test
 int main(){
 
 	//start for initializing socket
