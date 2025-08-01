@@ -30,7 +30,13 @@ if(result < 0){
     exit(EXIT_FAILURE);
 }
 char buffer[1024];
-int bytes_read = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
+
+printf("send message:");
+fgets(buffer,1024,stdin);
+buffer[strcspn(buffer, "\n")] = '\0';
+size_t length = strlen(buffer);
+int bytes_send = send(client_socket,buffer,sizeof(length) -1,0);
+int bytes_read = recv(client_socket, buffer, sizeof(length) - 1, 0);
 if (bytes_read > 0) {
     buffer[bytes_read] = '\0';
     printf("client replied: %s", buffer);
